@@ -4,24 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Post</title>
+
+    <link rel="stylesheet" href="/show.css">
 </head>
 <body>
-    <h2>Post Details</h2>
 
-    <p><strong>ID:</strong> <%= post.id %></p>
-    <p><strong>Username:</strong> @<%= post.username %></p>
-    <p><strong>Content:</strong> <%= post.content %></p>
+<div class="container">
 
-    <a href="/posts/<%= post.id %>/edit">
-        <button>Edit Post</button>
+    <div class="card">
+
+        <div class="avatar">
+            <%= post.username.charAt(0).toUpperCase() %>
+        </div>
+
+        <h2>Post Details</h2>
+
+        <div class="line"></div>
+
+        <p class="content">
+            <strong>ID:</strong> <%= post.id %>
+        </p>
+
+        <p class="content">
+            <strong>Username:</strong> @<%= post.username %>
+        </p>
+
+        <p class="content">
+            <strong>Content:</strong><br><br>
+            <%= post.content %>
+        </p>
+
+ <div class="buttons">
+
+    <a href="/posts/<%= post.id %>/edit" class="edit-btn">
+        ✏ Edit
     </a>
 
-    <!-- Delete form -->
-    <form action="/posts/<%= post.id %>?_method=DELETE" method="POST" style="display:inline;">
-        <button type="submit">Delete Post</button>
+    <form action="/posts/<%= post.id %>?_method=DELETE" method="POST">
+        <button type="submit">
+            🗑 Delete
+        </button>
     </form>
 
-    <br><br>
-    <a href="/posts">Back to All Posts</a>
+    <a href="/posts" class="back-btn">
+        ← Back
+    </a>
+
+</div>
+    </div>
+
+</div>
+
 </body>
 </html>

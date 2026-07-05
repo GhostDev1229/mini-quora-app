@@ -24,17 +24,26 @@ app.get("/posts", (req, res) => {
     res.render("index.ejs", { posts });
 });
 
+//Post Request
+// 1. Show the form
 app.get("/posts/new", (req, res) => {
     res.render("new.ejs");
 });
 
+// 2. Process the form data
 app.post("/posts", (req, res) => {
     let { username, content } = req.body;
     let id = uuidv4();
     posts.push({ id, username, content });
-    res.redirect("/posts");
+    res.redirect("/posts"); //This will By Default give the get request 
 });
 
+
+// What does it do?
+// Takes the id from the URL.
+// Finds the corresponding post.
+// Displays that post on the screen.
+//Show Route or View Route
 app.get("/posts/:id", (req, res) => {
     let { id } = req.params;
     let post = posts.find((p) => id === p.id);
@@ -42,6 +51,14 @@ app.get("/posts/:id", (req, res) => {
     res.render("show.ejs", { post });
 });
 
+
+// What does it do?
+// Takes the id from the URL.
+// Receives the updated data from the form (req.body).
+// Finds the post.
+// Changes its values.
+// Redirects to the posts page.
+//Update a specific post
 app.patch("/posts/:id", (req, res) => {
     const { id } = req.params;
     const { username, content } = req.body;
@@ -62,6 +79,7 @@ app.get("/posts/:id/edit", (req, res) => {
     res.render("edit.ejs", { post });
 });
 
+//Destroy Route
 app.get("/posts/:id/delete", (req, res) => {
     const { id } = req.params;
     const post = posts.find(p => p.id === id);
@@ -72,10 +90,15 @@ app.get("/posts/:id/delete", (req, res) => {
 
 app.delete("/posts/:id", (req, res) => {
     const { id } = req.params;
-    posts = posts.filter(post => post.id !== id); // remove the post
+    posts = posts.filter(post => post.id !== id); // remove the post in which 
+    //when the condition is false donot keep it in the array 
+    //assign new array with all of the satisfy the conditions
     res.redirect("/posts"); // redirect to main posts page
 });
 
 app.listen(port, () => {
     console.log("Listening to port : " + port);
 });
+
+
+//filter() creates a new array containing only the elements that satisfy the given condition.

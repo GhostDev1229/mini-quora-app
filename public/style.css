@@ -1,134 +1,203 @@
-/* Main heading */
-h1 {
-    color: maroon;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    margin-top: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-/* Post container */
-.post {
-    background-color: #fffbf0; /* lighter blanchedalmond */
-    border: 1px solid #e0d7c6;
-    border-radius: 10px;
-    padding: 15px 20px;
-    margin: 15px auto;
-    max-width: 600px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#eef4ff,#f8fbff,#e6f0ff);
+    padding:50px 20px;
 }
 
-/* Post hover effect */
-.post:hover {
-    transform: scale(1.02);
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+/* Heading */
+
+h1{
+    text-align:center;
+    font-size:46px;
+    color:#1e293b;
+    margin-bottom:45px;
+    font-weight:700;
+    animation:slideDown .7s ease;
 }
 
-/* Username styling */
-.user {
-    font-style: italic;
-    color: #555;
-    margin-bottom: 8px;
+/* Card */
+
+.post{
+    width:80%;
+    max-width:900px;
+    margin:25px auto;
+    background:#fff;
+    border-radius:18px;
+    padding:28px;
+    box-shadow:0 12px 30px rgba(0,0,0,.10);
+    transition:.35s;
+    animation:fadeUp .6s ease;
 }
 
-/* Post content */
-.content {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333;
+.post:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(37,99,235,.18);
+}
+
+/* Username */
+
+.user{
+    color:#2563eb;
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+/* Content */
+
+.content{
+    color:#475569;
+    font-size:17px;
+    line-height:1.8;
+    margin-bottom:25px;
 }
 
 /* Buttons */
-button {
-    background-color: maroon;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-right: 5px;
-    transition: background-color 0.2s ease;
+
+.actions{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    align-items:center;
 }
 
-button:hover {
-    background-color: darkred;
+.actions form{
+    margin:0;
 }
 
-/* Links */
-a {
-    text-decoration: none;
+.btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    min-width:120px;
+    height:45px;
+    border-radius:10px;
+    color:white;
+    font-size:15px;
+    font-weight:600;
+    transition:all .3s ease;
 }
 
-/* Container for main content */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-/* New Post Form Container */
-/* Edit Post Form Container */
-.edit-post-form {
-    background-color: #fffbf0; /* match post cards */
-    border: 1px solid #e0d7c6;
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 500px;
-    margin: 30px auto; /* centers the form */
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+/* View */
+
+.view-btn{
+    background:#2563eb;
 }
 
-/* Form elements */
-.edit-post-form input[type="text"],
-.edit-post-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
+.view-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-3px);
 }
 
-/* Submit button */
-.edit-post-form button {
-    background-color: maroon;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.2s ease;
+/* Edit */
+
+.edit-btn{
+    background:#16a34a;
 }
 
-.edit-post-form button:hover {
-    background-color: darkred;
+.edit-btn:hover{
+    background:#15803d;
+    transform:translateY(-3px);
 }
 
-/* Form elements */
-.new-post-form input[type="text"],
-.new-post-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
+/* Delete */
+
+.delete-btn{
+    background:#dc2626;
 }
 
-/* Submit button */
-.new-post-form button {
-    background-color: maroon;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.2s ease;
+.delete-btn:hover{
+    background:#b91c1c;
+    transform:translateY(-3px);
 }
 
-.new-post-form button:hover {
-    background-color: darkred;
+/* Create Button */
+
+.create-wrapper{
+    text-align:center;
+    margin-top:45px;
+}
+
+.create-btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#2563eb;
+    color:white;
+    padding:16px 32px;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:600;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(37,99,235,.25);
+}
+
+.create-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(37,99,235,.35);
+}
+
+/* Animations */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes slideDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .post{
+        width:100%;
+    }
+
+    .actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .create-btn{
+        width:100%;
+    }
+
 }

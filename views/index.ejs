@@ -4,23 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Posts</title>
+
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>Quora Posts</h1>
-   <% for (let post of posts) { %>
-    <div class="post">
-        <h3 class="user">@ <%= post.username %></h3>
-        <h4 class="content"><%= post.content %></h4>
-        <br>
-    <a  href="http://localhost:8080/posts/<%=post.id%>">See In Detail</a>
-    <a  href="http://localhost:8080/posts/<%=post.id%>/edit">Edit</a>
+
+<h1>Quora Posts</h1>
+
+<% for(let post of posts){ %>
+
+<div class="post">
+
+    <h3 class="user">@ <%= post.username %></h3>
+
+    <p class="content">
+        <%= post.content %>
+    </p>
+
+    <div class="actions">
+
+        <a href="/posts/<%= post.id %>" class="btn view-btn">
+            👁 View
+        </a>
+
+        <a href="/posts/<%= post.id %>/edit" class="btn edit-btn">
+            ✏ Edit
+        </a>
+
+        <form action="/posts/<%= post.id %>/delete">
+
+            <button class="btn delete-btn">
+                🗑 Delete
+            </button>
+
+        </form>
+
     </div>
+
+</div>
+
 <% } %>
 
-    <br>
-    <br>
-    <br>
-    <a href="http://localhost:8080/posts/new">Create New Post</a>
+<div class="create-wrapper">
+
+    <a href="/posts/new" class="create-btn">
+
+        + Create New Post
+
+    </a>
+
+</div>
+
 </body>
 </html>
